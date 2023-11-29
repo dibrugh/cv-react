@@ -48,11 +48,11 @@
     opacity: 0.8;
 }
 
-.nav-list__link--active {
+.nav-list__link_active {
     position: relative;
 }
 
-.nav-list__link--active::before {
+.nav-list__link_active::before {
     content: '';
 
     position: absolute;

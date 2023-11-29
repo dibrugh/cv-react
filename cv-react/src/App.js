@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Routes, Route } from "react-router-dom";
+
 //styles
 // main.css импортирует внутри reset.css
 import "./styles/main.css"
@@ -18,10 +20,12 @@ function App() {
 
       <Navbar />
 
-      {/* <Homepage /> */}
-     {/*  <Projects /> */}
-      <ChosenProject />
-      {/* <Contacts /> */}
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/projects' element={<Projects />} />
+        <Route path='/project' element={<ChosenProject />} />
+        <Route path='/contacts' element={<Contacts />} />
+      </Routes>
 
       <Footer />
 
