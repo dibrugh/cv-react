@@ -13,11 +13,14 @@ import Homepage from './pages/Homepage';
 import Projects from './pages/Projects';
 import Contacts from './pages/Contacts';
 import ChosenProject from './pages/ChosenProject';
+import ScrollToTop from './utils/scrollToTop';
 
 function App() {
   return (
     <div className="App">
-
+      {/* ReactRouter v5, для ScrollRestoration нужно переписывать на RouterProveder */}
+      <ScrollToTop />
+      
       <Navbar />
 
       <Routes>
