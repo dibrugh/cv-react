@@ -1,17 +1,17 @@
 import React, { useEffect, useRef } from 'react'
 // кастомный хук
 import { useLocalStorage } from '../../utils/useLocalStorage';
-
+import detectDarkMode from '../../utils/detectDarkMode';
 
 import sun from "../../img/icons/sun.svg"
 import moon from "../../img/icons/moon.svg";
 import "./style.css"
 
-
 export default function BtnDarkMode() {
 
     // 'darkMode' - key, 'light' - default value. Т.е при первичной загрузке в LocalStorage попадает darkMode: "light"
-    const [darkMode, setDarkMode] = useLocalStorage('darkMode', 'light');
+    // Теперь default value определяется в зависимости от установленно темы пользователя.
+    const [darkMode, setDarkMode] = useLocalStorage('darkMode', detectDarkMode());
     const btnRef = useRef(null);
 
     useEffect(() => {
