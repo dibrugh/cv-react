@@ -22,7 +22,18 @@ export default function BtnDarkMode() {
             document.body.classList.remove('dark');
             btnRef.current.classList.remove('dark-mode-btn_active');
         }
-    }, [darkMode])
+    }, [darkMode]);
+
+    // Отслеживание изменения системных настроек
+    useEffect(() => {
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", (event) => {
+                const newColorScheme = event.matches ? "dark" : "light";
+                setDarkMode(newColorScheme);
+                }
+            );
+    }, []);
 
     const toggleDarkMode = () => {
         setDarkMode((currentValue) => currentValue === 'light' ? 'dark' : 'light')
